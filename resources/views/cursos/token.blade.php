@@ -69,7 +69,7 @@
     <script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>
     <script type="text/javascript">
         // Conekta Public Key
-        Conekta.setPublishableKey('key_eYvWV7gSDkNYXsmr');
+        Conekta.setPublishableKey('key_OKaHFsyf7d8dHe9fyKomsig');
         // ...
     </script>
     <script>

@@ -183,7 +183,7 @@ class CursoController extends Controller
     }
 
     public function payment(Request $request) {
-        Conekta::setApiKey("key_eYvWV7gSDkNYXsmr");
+        Conekta::setApiKey("key_OKaHFsyf7d8dHe9fyKomsig");
         try{
             $order = Order::create(
               [
@@ -240,7 +240,7 @@ class CursoController extends Controller
     }
 
     public function paymentOxxo(Request $request) {
-        Conekta::setApiKey("key_eYvWV7gSDkNYXsmr");
+        Conekta::setApiKey("key_OKaHFsyf7d8dHe9fyKomsig");
         try{
             $thirty_days_from_now = (new DateTime())->add(new DateInterval('P30D'))->getTimestamp();
 

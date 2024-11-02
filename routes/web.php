@@ -11,9 +11,16 @@
 |
 */
 
+use Conekta\Conekta;
+use Conekta\Customer;
+use Conekta\Order;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('terms/conditions', function () {
     return view('terms');
 });
