@@ -45,12 +45,12 @@
                                     <div class="col-md-6">
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                            data-target="#exampleModal{{ $curso->id }}">
                                             Inscribir
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="exampleModal{{ $curso->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -96,6 +96,7 @@
                                                         <form action="{{ route('inscripcion.pago') }}" method="POST">
                                                             @csrf
                                                             @method('POST')
+                                                            id
                                                             <input name="curso_programado_id" type="hidden" value="{{ $curso->id }}">
                                                             <button type="submit"
                                                                 class="btn btn-primary">Confirmar</button>
@@ -116,7 +117,7 @@
 
 
 
-    <!-- Modal -->
+    {{-- <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
@@ -140,7 +141,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('javascript')
@@ -150,5 +151,23 @@
         // Conekta Public Key
         Conekta.setPublishableKey('key_OKaHFsyf7d8dHe9fyKomsig');
         // ...
+    </script>
+
+    <script>
+        $('#exampleModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('cursoid') // Extract info from data-* attributes
+            console.log(id)
+            //var id = button.getAttribute('data-cursoid');
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            //var modal = $(this)
+            //console.log(id)
+            var b = document.querySelector(".modal-footer form input")
+            console.log(b)
+            //modal.find('.modal-footer form button').setAttribute('value',''+recipient);
+            //var buttonid = console.log(modal.find('.modal-footer form button'))
+            b.setAttribute("value",id)
+        })
     </script>
 @endsection
